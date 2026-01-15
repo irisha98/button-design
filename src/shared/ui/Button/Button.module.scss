@@ -1,0 +1,136 @@
+
+@use "@/app/styles" as *;
+
+.button {
+    @include flex-center;
+
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    position: relative;
+    border-radius: var(--border-radius);
+}
+
+@mixin underline($line-color){
+    position: relative;
+    overflow: hidden;
+
+    .underLine {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        align-self: flex-end;
+        transform: translateX(-100%);
+        background-color: $line-color;
+        transition: all 0.3s ease-out;
+    }
+    &:hover .underLine {
+        transform: translateX(0);
+    }
+}
+
+.primary {
+    @include underline(var(--pink-color));
+
+    & {
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    transition: background-color 0.5s ease-in-out;
+
+    }
+}
+
+.outline {
+    @include underline(var(--blue-color));
+
+    & {
+    background-color: transparent;
+    color: var(--blue-color);
+    border: 2px solid var(--blue-color);
+    }
+}
+
+.secondary {
+    background-color: var(--pink-color);
+    color: var(--white-color);
+}
+
+.transparent {
+    @include flex-center;
+
+    background-color: transparent;
+    padding: 0;
+    color: var(--blue-color);
+}
+
+.circle {
+    @include flex-center;
+
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.cta {
+    background: linear-gradient(90deg, var(--blue-color) 25%, var(--blue-color-light) 50%, var(--blue-color) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+
+.loader {
+    width: 42px;
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+
+    circle {
+        fill: black;
+        transform: scale(1.5);
+        animation: fade-in 1.2s infinite;
+
+    }
+    circle:nth-child(1) { animation-delay: 0s; }
+    circle:nth-child(2) { animation-delay: 0.4s; }
+    circle:nth-child(3) { animation-delay: 0.8s; }
+}
+
+@keyframes fade-in {
+            0% {
+                opacity: 1;
+           }
+
+            50%,
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+.disabled {
+    background-color: #dcdcdc;
+    color: #7a7a7a;
+    border: none;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    .underLine {
+        display: none;
+    }
+    &:hover {
+        background-color: #dcdcdc;
+    }
+    
+}
