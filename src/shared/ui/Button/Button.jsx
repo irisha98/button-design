@@ -6,7 +6,7 @@ export const Button = (props) => {
     const {
         children,
         className,
-        color = 'primary',
+        color = 'primary', // primary | secondary | outline | transparent | disabled
         circle,
         cta,
         loading, 
@@ -16,7 +16,6 @@ export const Button = (props) => {
     const mode = {
         [styles.circle]: circle,
         [styles.cta]: cta,
-        [styles.loading]: loading,
     }
 
     const additional = [

@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-    <Button color="secondary"  type="button" onClick={handleClick} loading={loading}>
+    <Button color="secondary" circle type="button" onClick={handleClick} loading={loading}>
       Отправить
     </Button>
     </>
