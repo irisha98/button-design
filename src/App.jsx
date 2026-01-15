@@ -10,7 +10,7 @@ function App() {
 
     setTimeout(() => {
       setLoading(false)
-      alert('Форма отправлена')
+      alert('Форма отправлена!')
     }, 1500)
   }
 
